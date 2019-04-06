@@ -1,10 +1,10 @@
 from math import floor
 from statistics import mean
 from safety_harness import safety_harness
-
+from function import Function
 
 def index(param, input_vector):
-    return floor(abs(param)) % (len(input_vector) + 1)
+    return floor(abs(param)) % (len(input_vector))
 
 
 def data(param, input_vector):
@@ -25,9 +25,9 @@ def avg(param1, param2, input_vector=None):
 
 
 DATA_FUNCTIONS = {
-    "data": data,
-    "diff": diff,
-    "avg": avg
+    "data": Function(data, 1),
+    "diff": Function(diff, 2),
+    "avg": Function(avg, 2)
 }
 
 for key, function in DATA_FUNCTIONS.items():
